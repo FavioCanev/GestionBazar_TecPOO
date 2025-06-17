@@ -23,7 +23,12 @@ public class Producto {
     }
 
     public void setCodigo(String codigo) {
-        this.codigo = codigo;
+        if (codigo == null || codigo.isEmpty()) {
+            throw new IllegalArgumentException("El código no puede ser nulo o vacío");
+        }
+        else { // aquí también falta la restricción para que el código sea único
+            this.codigo = codigo;
+        }
     }
 
     public String getNombre() {
@@ -45,7 +50,7 @@ public class Producto {
 
     public void setMarca(String marca) {
         if (marca == null || marca.isEmpty()) {
-            throw new IllegalArgumentException("La marca no puede ser nula o vacía");
+            this.marca = "Genérico";
         }
         else { //aquí también falta la restricción para que la marca sea única
             this.marca = marca;
@@ -57,7 +62,12 @@ public class Producto {
     }
 
     public void setStock(int stock) {
-        this.stock = stock;
+        if (stock < 0) {
+            throw new IllegalArgumentException("El stock no puede ser nulo o negativo");
+        }
+        else {
+            this.stock = stock;
+        }
     }
 
     public double getPrecio() {
@@ -65,7 +75,15 @@ public class Producto {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+        if (precio < 0) {
+            throw new IllegalArgumentException("El precio no puede ser negativo");
+        }
+        else if (precio == 0) {
+            throw new IllegalArgumentException("El precio no puede ser cero");
+        }
+        else {
+            this.precio = precio;
+        }
     }
 
     @Override

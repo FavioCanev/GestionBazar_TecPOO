@@ -4,32 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Empleado extends Trabajador {
-    private List<Producto> Ventas = new ArrayList<>();
-    private Jefe jefe;
+    private List<Producto> ventas = new ArrayList<>();
+    private Administrador Jefe;
 
     public Empleado() {
     }
 
-    public Empleado(boolean rol, String nombreTrabajador, String DNI, String telefono, double sueldo, List<Producto> ventas, Jefe jefe) {
+    public Empleado(boolean rol, String nombreTrabajador, String DNI, String telefono, double sueldo, List<Producto> ventas, Administrador administrador) {
         super(rol, nombreTrabajador, DNI, telefono, sueldo);
-        Ventas = ventas;
-        this.jefe = jefe;
+        ventas = ventas;
+        this.Jefe = administrador;
     }
 
     public List<Producto> getVentas() {
-        return Ventas;
+        return ventas;
     }
 
     public void setVentas(List<Producto> ventas) {
-        Ventas = ventas;
+        ventas = ventas;
     }
 
-    public Jefe getJefe() {
-        return jefe;
+    public Administrador getJefe() {
+        return Jefe;
     }
 
-    public void setJefe(Jefe jefe) {
-        this.jefe = jefe;
+    public void setJefe(Administrador administrador) {
+        this.Jefe = administrador;
     }
 
     @Override
